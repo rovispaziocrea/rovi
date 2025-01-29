@@ -1,0 +1,133 @@
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(16, 30, 25, 0.8);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    z-index: var(--z-overlay);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all var(--transition-normal);
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal {
+    width: 90%;
+    max-width: 600px;
+    background-color: var(--color-white);
+    border-radius: var(--radius-lg);
+    padding: 0;
+    position: relative;
+    transform: translateY(20px);
+    opacity: 0;
+    transition: all var(--transition-normal);
+}
+
+.modal-overlay.active .modal {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.modal-header {
+    padding: var(--space-lg) var(--space-xl);
+    border-bottom: 1px solid rgba(76, 87, 84, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.modal-title {
+    font-size: var(--font-size-xl);
+    color: var(--color-primary);
+    margin: 0;
+}
+
+.modal-close {
+    background: none;
+    border: none;
+    color: var(--color-text-light);
+    font-size: var(--font-size-xl);
+    cursor: pointer;
+    padding: var(--space-xs);
+    transition: all var(--transition-fast);
+}
+
+.modal-close:hover {
+    color: var(--color-primary);
+    transform: rotate(90deg);
+}
+
+.modal-body {
+    padding: var(--space-xl);
+}
+
+.modal-footer {
+    padding: var(--space-lg) var(--space-xl);
+    border-top: 1px solid rgba(76, 87, 84, 0.1);
+    display: flex;
+    justify-content: flex-end;
+    gap: var(--space-md);
+}
+
+/* Modal Sizes */
+.modal-sm {
+    max-width: 400px;
+}
+
+.modal-lg {
+    max-width: 800px;
+}
+
+.modal-xl {
+    max-width: 1140px;
+}
+
+/* Modal Animations */
+@keyframes modalIn {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes modalOut {
+    from {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+}
+
+/* Responsive */
+@media screen and (max-width: 576px) {
+    .modal-header,
+    .modal-body,
+    .modal-footer {
+        padding: var(--space-md);
+    }
+
+    .modal-footer {
+        flex-direction: column;
+    }
+
+    .modal-footer button {
+        width: 100%;
+    }
+}

@@ -1,0 +1,212 @@
+.section-spaces {
+    background-color: var(--color-white);
+    position: relative;
+}
+
+.spaces-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-2xl);
+}
+
+.space-card {
+    position: relative;
+    background-color: var(--color-white);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    transition: all var(--transition-normal);
+}
+
+.space-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-lg);
+}
+
+.space-image {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+}
+
+.space-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--transition-normal);
+}
+
+.space-card:hover .space-image img {
+    transform: scale(1.1);
+}
+
+.space-image::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    background: linear-gradient(
+        to top,
+        rgba(16, 30, 25, 0.8),
+        transparent
+    );
+}
+
+.space-type {
+    position: absolute;
+    top: var(--space-md);
+    right: var(--space-md);
+    padding: var(--space-xs) var(--space-md);
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    border-radius: var(--radius-full);
+    font-size: var(--font-size-sm);
+    font-weight: 500;
+    z-index: 1;
+}
+
+.space-content {
+    padding: var(--space-xl);
+}
+
+.space-title {
+    font-size: var(--font-size-2xl);
+    color: var(--color-primary);
+    margin-bottom: var(--space-sm);
+}
+
+.space-description {
+    color: var(--color-text-light);
+    margin-bottom: var(--space-lg);
+    line-height: 1.6;
+}
+
+.space-features {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-md);
+    margin-bottom: var(--space-lg);
+}
+
+.space-feature {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    color: var(--color-text);
+}
+
+.space-feature i {
+    color: var(--color-primary);
+}
+
+.space-capacity {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-xs);
+    padding: var(--space-xs) var(--space-sm);
+    background-color: rgba(76, 87, 84, 0.1);
+    color: var(--color-text);
+    border-radius: var(--radius-sm);
+    font-size: var(--font-size-sm);
+    margin-bottom: var(--space-lg);
+}
+
+.space-price {
+    display: flex;
+    align-items: baseline;
+    gap: var(--space-xs);
+    margin-bottom: var(--space-md);
+}
+
+.space-price .amount {
+    font-size: var(--font-size-2xl);
+    font-weight: 700;
+    color: var(--color-primary);
+}
+
+.space-price .period {
+    color: var(--color-text-light);
+    font-size: var(--font-size-sm);
+}
+
+.space-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: var(--space-md);
+    border-top: 1px solid rgba(76, 87, 84, 0.1);
+}
+
+.space-availability {
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+    font-size: var(--font-size-sm);
+}
+
+.space-availability.available {
+    color: #34D399;
+}
+
+.space-availability.busy {
+    color: #F87171;
+}
+
+/* Patterns and Decorations */
+.spaces-pattern {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 300px;
+    height: 300px;
+    background-image: radial-gradient(var(--color-tertiary) 2px, transparent 2px);
+    background-size: 30px 30px;
+    opacity: 0.1;
+    z-index: 0;
+}
+
+/* Responsive */
+@media screen and (max-width: 1024px) {
+    .spaces-grid {
+        gap: var(--space-xl);
+    }
+    
+    .space-image {
+        height: 250px;
+    }
+    
+    .space-content {
+        padding: var(--space-lg);
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .spaces-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .space-features {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .space-content {
+        padding: var(--space-md);
+    }
+    
+    .space-image {
+        height: 200px;
+    }
+    
+    .space-title {
+        font-size: var(--font-size-xl);
+    }
+    
+    .space-price .amount {
+        font-size: var(--font-size-xl);
+    }
+}

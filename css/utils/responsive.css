@@ -1,0 +1,168 @@
+/* Responsive Breakpoints */
+@media screen and (min-width: 1441px) {
+    .container {
+        max-width: 1400px;
+    }
+}
+
+/* Desktop Large */
+@media screen and (max-width: 1440px) {
+    .container {
+        max-width: var(--container-width-xl);
+    }
+}
+
+/* Desktop */
+@media screen and (max-width: 1280px) {
+    .container {
+        max-width: var(--container-width-lg);
+    }
+
+    /* Grid adjustments */
+    .grid-3 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Tablet Landscape */
+@media screen and (max-width: 1024px) {
+    .container {
+        max-width: var(--container-width-md);
+    }
+
+    /* Header */
+    .header-content h1 {
+        font-size: var(--font-size-4xl);
+    }
+
+    /* Navigation */
+    .nav-links {
+        gap: var(--space-md);
+    }
+
+    /* Sections */
+    .section-padding {
+        padding: var(--space-2xl) 0;
+    }
+}
+
+/* Tablet Portrait */
+@media screen and (max-width: 768px) {
+    .container {
+        max-width: var(--container-width-sm);
+        padding: 0 var(--space-md);
+    }
+
+    /* Navigation */
+    .nav-links {
+        display: none;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .mobile-menu-active .nav-links {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        top: var(--header-height);
+        left: 0;
+        width: 100%;
+        background-color: var(--color-white);
+        padding: var(--space-lg);
+        box-shadow: var(--shadow-md);
+    }
+
+    /* Grid */
+    .grid-2, 
+    .grid-3, 
+    .grid-4 {
+        grid-template-columns: 1fr;
+        gap: var(--space-lg);
+    }
+
+    /* Typography */
+    h1 { font-size: var(--font-size-4xl); }
+    h2 { font-size: var(--font-size-3xl); }
+    h3 { font-size: var(--font-size-2xl); }
+
+    /* Spacing */
+    .section-padding {
+        padding: var(--space-xl) 0;
+    }
+}
+
+/* Mobile Large */
+@media screen and (max-width: 576px) {
+    /* Header */
+    .header-content {
+        padding: var(--space-xl) var(--space-md);
+    }
+
+    .header-content h1 {
+        font-size: var(--font-size-3xl);
+    }
+
+    .header-content h3 {
+        font-size: var(--font-size-lg);
+    }
+
+    /* Buttons */
+    .button,
+    .cta-button {
+        width: 100%;
+        text-align: center;
+    }
+
+    /* Cards */
+    .card {
+        padding: var(--space-md);
+    }
+}
+
+/* Mobile Small */
+@media screen and (max-width: 375px) {
+    /* Typography */
+    h1 { font-size: var(--font-size-3xl); }
+    h2 { font-size: var(--font-size-2xl); }
+    h3 { font-size: var(--font-size-xl); }
+
+    /* Spacing */
+    .container {
+        padding: 0 var(--space-sm);
+    }
+
+    .section-padding {
+        padding: var(--space-lg) 0;
+    }
+}
+
+/* Support for high DPI screens */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    /* Adjust borders for retina displays */
+    .border {
+        border-width: 0.5px;
+    }
+}
+
+/* Print Styles */
+@media print {
+    .no-print {
+        display: none !important;
+    }
+
+    body {
+        color: #000;
+        background: #fff;
+    }
+
+    a {
+        text-decoration: underline;
+    }
+
+    .container {
+        max-width: none;
+        padding: 0;
+    }
+}
