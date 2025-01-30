@@ -3,6 +3,7 @@ class NavbarManager {
         this.navbar = document.querySelector('.navbar');
         this.menuToggle = document.querySelector('.menu-toggle');
         this.navLinks = document.querySelector('.nav-links');
+        this.navLogo = document.querySelector('.nav-logo');
         this.init();
     }
 
@@ -10,6 +11,7 @@ class NavbarManager {
         this.handleMobileMenu();
         this.handleScroll();
         this.handleLinks();
+        this.handleLogoClick();
     }
 
     handleMobileMenu() {
@@ -34,6 +36,15 @@ class NavbarManager {
             link.addEventListener('click', () => {
                 this.navLinks.classList.remove('active');
                 this.menuToggle.classList.remove('active');
+            });
+        });
+    }
+
+    handleLogoClick() {
+        this.navLogo.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
             });
         });
     }
