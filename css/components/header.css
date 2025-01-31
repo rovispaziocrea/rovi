@@ -10,6 +10,8 @@
     padding: 0 var(--space-xl);
     overflow: hidden;
     font-family: var(--font-primary);
+    perspective: 1px;
+    transform-style: preserve-3d; /* Mantiene la profondità 3D */
 }
 
 .header-background {
@@ -20,6 +22,7 @@
     height: 100%;
     object-fit: cover;
     z-index: 0;
+    transform: translateZ(-1px) scale(2);
 }
 
 .header-content {
@@ -34,11 +37,14 @@
     align-items: center;
     gap: var(--space-2xl);
     font-family: var(--font-primary);
+    transform: translateZ(0.5px) scale(0.5); /* Effetto parallax per il contenuto */
+    transition: transform 0.1s ease;
 }
 
 .header-logo {
     width: min(400px, 80vw);
     height: auto;
+    transition: transform 0.1s ease;
 }
 
 .header .cta-button {
@@ -54,11 +60,12 @@
     font-family: var(--font-primary);
     text-decoration: none;
     font-weight: 500;
+    transition: transform 0.1s ease;
 }
 
 .header .cta-button:hover {
-    background-color: var(--color-secondary);
-    transform: translateY(-2px);
+    background-color: var(--color-tertiary);
+    transform: translateY(4px);
 }
 
 @media screen and (max-width: 768px) {

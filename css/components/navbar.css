@@ -47,7 +47,7 @@
 }
 
 .nav-links a:hover {
-    color: var(--color-secondary);
+    color: var(--color-tertiary);
 }
 
 .nav-links .cta-button {

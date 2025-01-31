@@ -60,7 +60,8 @@ function setupNewsletterForm() {
 async function loadAllSections() {
     try {
         await Promise.all([
-            loadSection('about-container', 'about.html'),
+            loadSection('about-project-container', 'about-project.html'),
+            loadSection('about-research-container', 'about-research.html'),
             loadSection('services-container', 'services.html'),
             loadSection('spaces-container', 'spaces.html'),
             loadSection('events-container', 'events.html'),

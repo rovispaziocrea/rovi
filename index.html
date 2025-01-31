@@ -35,10 +35,11 @@
         <img src="assets/logo/rovilogo.png" alt="ROVI" class="nav-logo">
         <div class="nav-links">
             <a href="#about">IL PROGETTO</a>
+            <a href="#research">RICERCA</a>
             <a href="#services">SERVIZI</a>
             <a href="#spaces">SPAZI</a>
             <a href="#events">EVENTI</a>
-            <a href="#contact" class="cta-button">CONTATTACI</a>
+            <a href="#contact" class="cta-button">PARTECIPA</a>
         </div>
         <div class="menu-toggle">☰</div>
     </nav>
@@ -47,11 +48,11 @@
     <header class="header">
         <!-- Background Video -->
         <video class="header-background" autoplay muted playsinline preload="auto">
-            <source src="assets/background/videobackgorund1.webm" type="video/webm">
-            <source src="assets/background/videobackgorund1.mp4" type="video/mp4">
+            <source src="assets/background/videobackgorund3.webm" type="video/webm">
+            <source src="assets/background/videobackgorund3.webm" type="video/mp4">
         </video>
         <div class="header-content">
-            <img src="assets/logo/logo.svg" alt="ROVI" class="header-logo">
+            <img src="assets/logo/rovilogo.png" alt="ROVI" class="header-logo">
             <a href="#about" class="cta-button">SCOPRI IL PROGETTO</a>
         </div>
     </header>
@@ -59,7 +60,8 @@
     <!-- Main Content -->
     <main class="main-content">
         <!-- Section containers -->
-        <div id="about-container"></div>
+        <div id="about-project-container"></div>
+        <div id="about-research-container"></div>
         <div id="services-container"></div>
         <div id="spaces-container"></div>
         <div id="events-container"></div>
@@ -72,25 +74,6 @@
     <script src="js/modules/animations.js"></script>
     <script src="js/modules/scroll.js"></script>
     <script src="js/main.js"></script>
-    <script>
-    // Script per gestire il loop del video
-    document.addEventListener('DOMContentLoaded', function() {
-        const video = document.querySelector('.header-background');
-        
-        // Funzione per far ripartire il video dall'inizio
-        function restartVideo() {
-            video.currentTime = 0;
-            video.play();
-        }
-
-        // Riavvia il video quando finisce
-        video.addEventListener('ended', restartVideo);
-        
-        // Assicurati che il video parta
-        video.play().catch(function(error) {
-            console.log("Video autoplay fallito:", error);
-        });
-    });
-    </script>
+    <script src="js/header.js"></script>
 </body>
 </html>
