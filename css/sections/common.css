@@ -1,12 +1,17 @@
 .main-content {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 var(--space-xl);
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
 }
 
-section {
-    padding: var(--space-4xl) 0;
+.section {
+    width: 100vw;
+    padding: 6rem 0;
     position: relative;
+    margin-left: calc(-50vw + 50%);
+    margin-right: calc(-50vw + 50%);
+    overflow: hidden;
 }
 
 .section-header {
@@ -58,6 +63,48 @@ section {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: var(--space-lg);
+}
+
+/* Colored background sections */
+.section-colored {
+    background: linear-gradient(145deg, rgb(16, 30, 25) 0%, rgb(46, 58, 54) 100%);
+    color: white;
+}
+
+.section-colored h2,
+.section-colored h3,
+.section-colored p {
+    color: white;
+}
+
+/* White background sections */
+.section-white {
+    background-color: white;
+}
+
+/* Inner container for section content */
+.section-inner {
+    width: 80%;
+    margin: 0 auto;
+    position: relative;
+}
+
+/* Container for section content */
+.section-container {
+    max-width: 80%;
+    margin: 0 auto;
+    position: relative;
+}
+
+/* Section transitions */
+.section::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: rgba(0, 0, 0, 0.1);
 }
 
 /* Responsive */
