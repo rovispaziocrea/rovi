@@ -42,7 +42,8 @@
     backdrop-filter: blur(8px); /* Aggiunge un effetto vetro */
     padding: 2rem;
     border-radius: 12px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform var(--transition-normal), box-shadow var(--transition-normal),
+                background 0.3s ease;
     border: 1px solid rgba(255, 255, 255, 0.1);
 }
 

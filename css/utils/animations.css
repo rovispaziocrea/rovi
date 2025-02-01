@@ -102,16 +102,12 @@
 }
 
 /* Hover Animations */
-.hover-lift {
+.hover-lift, .hover-grow {
     transition: transform var(--transition-normal);
 }
 
 .hover-lift:hover {
     transform: translateY(-5px);
-}
-
-.hover-grow {
-    transition: transform var(--transition-normal);
 }
 
 .hover-grow:hover {

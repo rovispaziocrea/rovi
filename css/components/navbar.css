@@ -10,7 +10,7 @@
     align-items: center;
     backdrop-filter: blur(1px);
     -webkit-backdrop-filter: blur(1px);
-    transition: all 0.3s ease;
+    transition: background-color var(--transition-normal), box-shadow var(--transition-normal);
     font-family: var(--font-primary);
 }
 
@@ -23,7 +23,7 @@
     height: 20px;
     width: auto;
     cursor: pointer;
-    transition: transform 0.3s ease;
+    transition: transform var(--transition-normal);
 }
 
 .nav-logo:hover {
@@ -42,8 +42,7 @@
     text-decoration: none;
     font-weight: 500;
     font-size: 10px;
-    transition: color 0.3s ease;
-    font-family: var(--font-primary);
+    transition: color var(--transition-normal);
 }
 
 .nav-links a:hover {
@@ -55,8 +54,7 @@
     color: white;
     padding: var(--space-sm) var(--space-lg);
     border-radius: var(--radius-full);
-    transition: all 0.3s ease;
-    font-family: var(--font-primary);
+    transition: transform var(--transition-normal), background-color var(--transition-normal);
 }
 
 .nav-links .cta-button:hover {
@@ -87,7 +85,7 @@
         width: 100%;
         height: calc(100vh - 80px);
         padding: var(--space-2xl);
-        transition: right 0.3s ease;
+        transition: right var(--transition-normal);
     }
 
     .nav-links.active {

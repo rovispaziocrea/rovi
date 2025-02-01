@@ -24,8 +24,8 @@
     font-size: var(--font-size-3xl);
     color: var(--color-primary);
     margin-bottom: var(--space-md);
-    position: relative;
     display: inline-block;
+    position: relative;
 }
 
 .section-header h2::after {
@@ -84,7 +84,7 @@
 
 /* Inner container for section content */
 .section-inner {
-    width: 80%;
+    max-width: 80%;
     margin: 0 auto;
     position: relative;
 }

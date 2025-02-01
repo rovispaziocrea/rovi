@@ -59,7 +59,7 @@
     cursor: pointer;
     padding: var(--space-xs);
     margin: calc(var(--space-xs) * -1);
-    transition: all var(--transition-fast);
+    transition: color var(--transition-fast);
 }
 
 .toast-close:hover {

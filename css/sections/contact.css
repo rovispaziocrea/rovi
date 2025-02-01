@@ -34,7 +34,7 @@
     padding: 2rem;
     border-radius: 12px;
     text-align: center;
-    transition: transform 0.3s ease, background-color 0.3s ease;
+    transition: transform var(--transition-normal), background-color var(--transition-normal);
 }
 
 .benefit-card:hover {
@@ -91,7 +91,7 @@
     background: rgba(255, 255, 255, 0.05);
     color: white;
     font-size: 1rem;
-    transition: border-color 0.3s ease, background-color 0.3s ease;
+    transition: border-color var(--transition-normal), background-color var(--transition-normal);
 }
 
 .form-control:focus {
@@ -108,7 +108,7 @@
     border-radius: 6px;
     font-size: 1.1rem;
     cursor: pointer;
-    transition: transform 0.3s ease, background-color 0.3s ease;
+    transition: transform var(--transition-normal), background-color var(--transition-normal);
     margin-top: 1rem;
 }
 
@@ -125,14 +125,11 @@
     line-height: 1.6;
 }
 
-/* Responsive Design */
+/* Responsive */
 @media (max-width: 768px) {
     .benefits-grid {
         grid-template-columns: 1fr;
         gap: 1rem;
     }
-
-    .contact-form-container {
-        padding: 1.5rem;
-    }
+    .contact-form-container { padding: 1.5rem; }
 }

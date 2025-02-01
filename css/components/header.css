@@ -56,11 +56,9 @@
     font-size: var(--font-size-sm);
     text-transform: uppercase;
     letter-spacing: 1px;
-    transition: all var(--transition-normal);
-    font-family: var(--font-primary);
     text-decoration: none;
     font-weight: 500;
-    transition: transform 0.1s ease;
+    transition: transform 0.1s ease, background-color 0.1s ease;
 }
 
 .header .cta-button:hover {
