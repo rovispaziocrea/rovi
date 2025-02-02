@@ -3,7 +3,7 @@
     background-image: url('/assets/spaces/spazicoworking.jpg');
     background-size: cover;
     background-position: center;
-    background-attachment: fixed; /* Per un effetto parallasse */
+    background-attachment: fixed;
     position: relative;
     width: 100vw;
     margin-left: 50%;
@@ -17,29 +17,35 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(145deg, rgba(16, 30, 25, 0.85), rgba(46, 58, 54, 0.85)); /* Ridotto l'overlay */
+    background: linear-gradient(145deg, rgba(16, 30, 25, 0.85), rgba(46, 58, 54, 0.85));
 }
+
 
 .section.section-spaces .section-inner {
     position: relative;
     z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 /* Container e Cards */
 .spaces-container {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
     margin-top: 3rem;
+    margin-bottom: 3rem;
+    width: 100%;
+    max-width: 1000px; /* Stessa larghezza massima del carosello */
 }
 
-/* Rendere le card più trasparenti per vedere meglio il background */
 .space-card {
     display: flex;
     flex-direction: column;
     height: 100%;
     background: linear-gradient(145deg, rgba(16, 30, 25, 0.8), rgba(46, 58, 54, 0.8));
-    backdrop-filter: blur(8px); /* Aggiunge un effetto vetro */
+    backdrop-filter: blur(8px);
     padding: 2rem;
     border-radius: 12px;
     transition: transform var(--transition-normal), box-shadow var(--transition-normal),
@@ -51,12 +57,6 @@
     transform: translateY(-5px);
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
     background: linear-gradient(145deg, rgba(16, 30, 25, 0.9), rgba(46, 58, 54, 0.9));
-}
-
-.space-card .research-content {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
 }
 
 .space-card h4 {
@@ -97,42 +97,146 @@
     color: var(--color-tertiary);
 }
 
-/* Introduzione sezione */
-.section.section-spaces .research-intro {
+/* Carousel principale */
+.spaces-carousel {
+    margin-top: 4rem;
+    width: 100%;
+    max-width: 1000px;
+}
+
+.carousel {
     position: relative;
+    margin-bottom: 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+/* ... resto del codice carousel rimane invariato ... */
+
+.carousel-inner {
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%; /* Aspect ratio 16:9 */
+}
+
+.carousel-item {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.carousel-item.active {
+    opacity: 1;
+}
+
+.carousel-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* Controlli */
+.carousel-controls {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: space-between;
+    padding: 0 1rem;
     z-index: 2;
-    color: white;
+    pointer-events: none;
 }
 
-.section.section-spaces .research-intro h3,
-.section.section-spaces .research-intro p,
-.section.section-spaces .research-intro i {
+.carousel-prev,
+.carousel-next {
+    width: 40px;
+    height: 40px;
+    background: var(--color-tertiary);
+    border: none;
+    border-radius: 50%;
     color: white;
-    text-shadow: 0 2px 4px rgba(0,0,0,0.2); /* Migliore leggibilità sul background */
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    pointer-events: auto;
 }
 
-/* Animation delays */
-.space-card:nth-child(1) { animation-delay: 0.1s; }
-.space-card:nth-child(2) { animation-delay: 0.2s; }
-.space-card:nth-child(3) { animation-delay: 0.3s; }
+.carousel-prev:hover,
+.carousel-next:hover {
+    background: var(--color-primary);
+    transform: scale(1.1);
+}
+
+/* Thumbnails */
+.carousel-thumbnails {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+}
+
+.carousel-thumb {
+    width: 100px;
+    height: 70px;
+    border-radius: 8px;
+    overflow: hidden;
+    cursor: pointer;
+    opacity: 0.6;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.carousel-thumb:hover {
+    opacity: 0.8;
+}
+
+.carousel-thumb.active {
+    opacity: 1;
+    border-color: var(--color-tertiary);
+}
+
+.carousel-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.carousel-thumb:hover img {
+    transform: scale(1.1);
+}
 
 /* Responsive */
-@media (max-width: 1024px) {
-    .spaces-container {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
 @media (max-width: 768px) {
     .spaces-container {
         grid-template-columns: 1fr;
-    }
-    
-    .space-card {
-        padding: 1.5rem;
+        padding: 0 1rem;
     }
 
-    .section.section-spaces {
-        background-attachment: scroll; /* Migliore performance su mobile */
+    .spaces-carousel {
+        margin-top: 2rem;
+        padding: 0 1rem;
+    }
+
+    .carousel-thumbnails {
+        gap: 0.5rem;
+        padding: 0.5rem;
+    }
+
+    .carousel-thumb {
+        width: 70px;
+        height: 50px;
     }
 }

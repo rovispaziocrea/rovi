@@ -28,7 +28,16 @@ function initializeSection(sectionFile) {
         case 'footer.html':
             setupNewsletterForm();
             break;
+        case 'spaces.html':
+            initializeCarousel();
+            break;
     }
+}
+
+function initializeCarousel() {
+    console.log('Initializing carousel after spaces section loaded');
+    const carousels = document.querySelectorAll('.carousel');
+    carousels.forEach(carousel => new Carousel(carousel));
 }
 
 function setupContactForm() {

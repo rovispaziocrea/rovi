@@ -3,22 +3,37 @@
     width: 100%;
     overflow: hidden;
     border-radius: var(--radius-lg);
+    aspect-ratio: 16/9; /* Mantiene un rapporto d'aspetto costante */
 }
 
 .carousel-inner {
-    display: flex;
-    transition: transform var(--transition-normal);
+    position: relative;
+    width: 100%;
+    height: 100%;
 }
 
 .carousel-item {
-    min-width: 100%;
-    position: relative;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    pointer-events: none;
+}
+
+.carousel-item.active {
+    opacity: 1;
+    pointer-events: auto;
 }
 
 .carousel-item img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain; /* Cambiato da cover a contain per mantenere le proporzioni */
+    background-color: rgba(0, 0, 0, 0.05); /* Leggero sfondo per le parti vuote */
+    border-radius: var(--radius-lg);
 }
 
 .carousel-caption {
@@ -50,7 +65,7 @@
     display: flex;
     justify-content: space-between;
     padding: 0 var(--space-md);
-    pointer-events: none;
+    z-index: 2;
 }
 
 .carousel-prev,
@@ -64,8 +79,10 @@
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    pointer-events: all;
-    transition: transform var(--transition-normal), background-color var(--transition-normal);
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    border: none;
+    outline: none;
+    z-index: 3;
 }
 
 .carousel-prev:hover,
@@ -81,7 +98,7 @@
     transform: translateX(-50%);
     display: flex;
     gap: var(--space-xs);
-    z-index: 1;
+    z-index: 2;
 }
 
 .carousel-indicator {
@@ -90,7 +107,9 @@
     border-radius: var(--radius-full);
     background-color: rgba(255, 255, 255, 0.5);
     cursor: pointer;
-    transition: transform var(--transition-normal), background-color var(--transition-normal);
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    border: none;
+    padding: 0;
 }
 
 .carousel-indicator.active {
@@ -101,73 +120,48 @@
 /* Thumbnail Navigation */
 .carousel-thumbs {
     display: flex;
-    gap: var(--space-xs);
+    justify-content: center;
+    gap: var(--space-sm);
     margin-top: var(--space-md);
     padding: 0 var(--space-md);
 }
 
 .carousel-thumb {
-    width: 80px;
-    height: 60px;
+    position: relative;
+    width: 100px;
+    height: 70px;
     border-radius: var(--radius-sm);
     overflow: hidden;
     cursor: pointer;
     opacity: 0.6;
-    transition: transform var(--transition-normal), opacity var(--transition-normal);
+    transition: transform 0.3s ease, opacity 0.3s ease, border 0.3s ease;
+    border: 2px solid transparent;
+    z-index: 3;
 }
 
 .carousel-thumb img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: cover; /* Le miniature possono usare cover per un aspetto migliore */
 }
 
 .carousel-thumb.active {
     opacity: 1;
     transform: scale(1.1);
+    border-color: var(--color-tertiary);
 }
 
-/* Fade Animation */
-.carousel.fade .carousel-inner {
-    display: block;
-}
-
-.carousel.fade .carousel-item {
-    opacity: 0;
-    transition: opacity var(--transition-normal);
-    position: absolute;
-    top: 0;
-    left: 0;
-}
-
-.carousel.fade .carousel-item.active {
-    opacity: 1;
-    position: relative;
-}
-
-/* Responsive */
-@media screen and (max-width: 768px) {
-    .carousel-caption {
-        padding: var(--space-lg);
+@media (max-width: 768px) {
+    .carousel {
+        aspect-ratio: 4/3; /* Rapporto diverso per mobile */
     }
-    .carousel-prev,
-    .carousel-next {
-        width: 40px;
-        height: 40px;
-    }
+    
     .carousel-thumbs {
-        display: none;
+        gap: var(--space-xs);
     }
-}
-
-@media screen and (max-width: 576px) {
-    .carousel-caption {
-        padding: var(--space-md);
-    }
-    .carousel-caption h3 {
-        font-size: var(--font-size-lg);
-    }
-    .carousel-controls {
-        padding: 0 var(--space-sm);
+    
+    .carousel-thumb {
+        width: 60px;
+        height: 45px;
     }
 }
