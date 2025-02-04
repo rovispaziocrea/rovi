@@ -1,67 +1,67 @@
 <!-- Contact Section -->
 <section id="contact" class="section section-contact">
-    <div class="section-inner">
-        <div class="research-intro">
-            <div class="section-header animate fade-in">
-                <h2>Diventa Socio</h2>
+    <div class="contact-container">
+        <!-- Left Side - Content -->
+        <div class="contact-info">
+            <div class="contact-header">
+                <h2>Diventa <span>Socio</span></h2>
+                <p>Per dare vita a questo progetto stiamo creando una nuova realtà associativa. Cerchiamo persone interessate che vogliono contribuire attivamente allo sviluppo di questa opportunità per il territorio.</p>
+                <p class="highlight">Se vuoi essere tra i soci e partecipare alla creazione di questo nuovo polo culturale e creativo, questo è il momento giusto per dare un contributo.</p>
+                <p>Invia il tuo interessere e sarai contattatato per partecipare alla prima riunione</p>
             </div>
-            <div class="contact-intro">
-                <p class="research-description">
-                    Per dare vita a questo progetto stiamo creando una nuova realtà associativa. Cerchiamo persone interessate che vogliano contribuire attivamente allo sviluppo di questa opportunità per il territorio.
-                </p>
-                <p class="research-description highlight">
-                    Se vuoi essere tra i soci e partecipare alla creazione di questo nuovo polo culturale e creativo, questo è il momento giusto per unirti a noi.
-                </p>
+
+            <!-- Features Grid -->
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="material-icons">rocket_launch</i>
+                    </div>
+                    <div class="feature-text">
+                        Partecipa dall'inizio
+                    </div>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="material-icons">groups</i>
+                    </div>
+                    <div class="feature-text">
+                        Unisciti alla community
+                    </div>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="material-icons">trending_up</i>
+                    </div>
+                    <div class="feature-text">
+                        Proponi le tue idee
+                    </div>
+                </div>
             </div>
         </div>
 
-        <div class="contact-container">
-            <!-- Benefici -->
-            <div class="benefits-grid">
-                <div class="benefit-card">
-                    <i class="material-icons">rocket_launch</i>
-                    <h4>Partecipa dall'Inizio</h4>
-                    <p>Entra a far parte del progetto fin dalle sue fondamenta e contribuisci a plasmarne il futuro</p>
-                </div>
-                
-                <div class="benefit-card">
-                    <i class="material-icons">hub</i>
-                    <h4>Network Professionale</h4>
-                    <p>Connettiti con altri professionisti e creativi che condividono la tua visione</p>
-                </div>
-
-                <div class="benefit-card">
-                    <i class="material-icons">trending_up</i>
-                    <h4>Opportunità di Crescita</h4>
-                    <p>Accedi a opportunità di sviluppo professionale e personale nel territorio</p>
-                </div>
+        <!-- Right Side - Form -->
+        <form class="contact-form">
+            <div class="form-group">
+                <label for="name">Nome e Cognome</label>
+                <input type="text" id="name" name="name" class="form-control" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" class="form-control" required>
             </div>
 
-            <!-- Form Section -->
-            <div class="contact-form-container">
-                <form id="contactForm" class="contact-form">
-                    <div class="form-group">
-                        <label for="name">Nome e Cognome</label>
-                        <input type="text" id="name" class="form-control" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" class="form-control" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="phone">Numero di telefono</label>
-                        <input type="tel" id="phone" class="form-control" required>
-                    </div>
-                    
-                    <button type="submit" class="submit-button">Voglio Partecipare</button>
-                </form>
-
-                <div class="form-footer">
-                    <p>Una volta inviata la tua candidatura, verrai ricontattato dal nostro team per scoprire tutti i dettagli del progetto e le modalità di partecipazione. Grazie per l'interesse.</p>
-                </div>
+            <div class="form-group">
+                <label for="message">Il tuo Messaggio (facoltativo)</label>
+                <textarea id="message" name="message" class="form-control" rows="4"></textarea>
             </div>
-        </div>
+
+            <button type="submit" class="submit-button">
+                <span>Invia</span>
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </form>
     </div>
 </section>

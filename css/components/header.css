@@ -10,8 +10,6 @@
     padding: 0 var(--space-xl);
     overflow: hidden;
     font-family: var(--font-primary);
-    perspective: 1px;
-    transform-style: preserve-3d; /* Mantiene la profondità 3D */
 }
 
 .header-background {
@@ -22,7 +20,6 @@
     height: 100%;
     object-fit: cover;
     z-index: 0;
-    transform: translateZ(-1px) scale(2);
 }
 
 .header-content {
@@ -37,14 +34,12 @@
     align-items: center;
     gap: var(--space-2xl);
     font-family: var(--font-primary);
-    transform: translateZ(0.5px) scale(0.5); /* Effetto parallax per il contenuto */
-    transition: transform 0.1s ease;
 }
 
 .header-logo {
     width: min(400px, 80vw);
     height: auto;
-    transition: transform 0.1s ease;
+    transition: transform 0.3s ease;
 }
 
 .header .cta-button {
@@ -58,30 +53,57 @@
     letter-spacing: 1px;
     text-decoration: none;
     font-weight: 500;
-    transition: transform 0.1s ease, background-color 0.1s ease;
+    transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
 .header .cta-button:hover {
     background-color: var(--color-tertiary);
-    transform: translateY(4px);
+    transform: translateY(-2px);
+}
+
+@media screen and (min-width: 769px) {
+    .header {
+        perspective: 1px;
+        transform-style: preserve-3d;
+    }
+    
+    .header-background {
+        transform: translateZ(-1px) scale(2);
+    }
+    
+    .header-content {
+        transform: translateZ(0.5px) scale(0.5);
+    }
 }
 
 @media screen and (max-width: 768px) {
     .header {
         min-height: 500px;
+        height: 100svh;
     }
 
     .header-content {
         padding: var(--space-xl) var(--space-lg);
+    }
+    
+    .header-background {
+        transform: none;
     }
 }
 
 @media screen and (max-width: 480px) {
     .header {
         min-height: 400px;
+        height: 100svh;
     }
 
     .header-content {
         padding: var(--space-lg) var(--space-md);
+    }
+    
+    .header .cta-button {
+        width: 80%;
+        max-width: 300px;
+        padding: var(--space-md) var(--space-lg);
     }
 }

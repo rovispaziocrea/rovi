@@ -24,9 +24,24 @@
 
 /* Tablet Portrait */
 @media screen and (max-width: 768px) {
-    .container { max-width: var(--container-width-sm); padding: 0 var(--space-md); }
-    .nav-links { display: none; }
-    .menu-toggle { display: block; }
+    .container { 
+        max-width: var(--container-width-sm); 
+        padding: 0 var(--space-md);
+    }
+    
+    /* Menu Mobile Migliorato */
+    .nav-links { 
+        display: none;
+        transition: transform 0.3s ease-in-out;
+    }
+    
+    .menu-toggle { 
+        display: block;
+        cursor: pointer;
+        padding: var(--space-sm);
+        z-index: 1000;
+    }
+    
     .mobile-menu-active .nav-links {
         display: flex;
         flex-direction: column;
@@ -34,47 +49,133 @@
         top: var(--header-height);
         left: 0;
         width: 100%;
+        height: auto;
         background-color: var(--color-white);
         padding: var(--space-lg);
         box-shadow: var(--shadow-md);
+        z-index: 999;
     }
+
+    .mobile-menu-active .nav-links a {
+        padding: var(--space-md) 0;
+        width: 100%;
+        text-align: center;
+        border-bottom: 1px solid var(--color-gray-100);
+    }
+
+    .mobile-menu-active .nav-links a:last-child {
+        border-bottom: none;
+    }
+    
+    /* Layout Grids */
     .grid-2, .grid-3, .grid-4 {
         grid-template-columns: 1fr;
         gap: var(--space-lg);
     }
+    
+    /* Typography */
     h1 { font-size: var(--font-size-4xl); }
     h2 { font-size: var(--font-size-3xl); }
     h3 { font-size: var(--font-size-2xl); }
+    
     .section-padding { padding: var(--space-xl) 0; }
 }
 
 /* Mobile Large */
 @media screen and (max-width: 576px) {
-    .header-content { padding: var(--space-xl) var(--space-md); }
-    .header-content h1 { font-size: var(--font-size-3xl); }
-    .header-content h3 { font-size: var(--font-size-lg); }
+    /* Header Optimization */
+    .header-content { 
+        padding: var(--space-xl) var(--space-md);
+        text-align: center;
+    }
+    
+    .header-content h1 { 
+        font-size: var(--font-size-3xl);
+        line-height: 1.3;
+    }
+    
+    .header-content h3 { 
+        font-size: var(--font-size-lg);
+        line-height: 1.5;
+    }
+    
+    /* Buttons */
     .button, .cta-button {
         width: 100%;
         text-align: center;
+        padding: var(--space-md) var(--space-lg);
+        margin: var(--space-sm) 0;
     }
-    .card { padding: var(--space-md); }
+    
+    /* Cards and Content */
+    .card { 
+        padding: var(--space-md);
+        margin: var(--space-sm) 0;
+    }
+    
+    /* Images and Media */
+    .header-background {
+        object-fit: cover;
+        height: 100%;
+        width: 100%;
+    }
+    
+    /* Form Elements */
+    input, textarea, select {
+        font-size: 16px; /* Prevents iOS zoom on focus */
+        width: 100%;
+        margin: var(--space-xs) 0;
+    }
+    
+    /* Spacing */
+    .section > * + * {
+        margin-top: var(--space-md);
+    }
 }
 
 /* Mobile Small */
 @media screen and (max-width: 375px) {
-    h1 { font-size: var(--font-size-3xl); }
-    h2 { font-size: var(--font-size-2xl); }
-    h3 { font-size: var(--font-size-xl); }
-    .container { padding: 0 var(--space-sm); }
-    .section-padding { padding: var(--space-lg) 0; }
+    /* Typography */
+    h1 { 
+        font-size: var(--font-size-3xl);
+        line-height: 1.2;
+    }
+    h2 { 
+        font-size: var(--font-size-2xl);
+        line-height: 1.3;
+    }
+    h3 { 
+        font-size: var(--font-size-xl);
+        line-height: 1.4;
+    }
+    
+    /* Layout */
+    .container { 
+        padding: 0 var(--space-sm);
+    }
+    
+    .section-padding { 
+        padding: var(--space-lg) 0;
+    }
+    
+    /* Spacing */
+    .grid-2, .grid-3, .grid-4 {
+        gap: var(--space-md);
+    }
 }
 
 /* High DPI Screens */
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
     .border { border-width: 0.5px; }
+    
+    /* Optimize images for retina displays */
+    img {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
 }
 
-/* Print Styles */
+/* Print Styles - Unchanged */
 @media print {
     .no-print { display: none !important; }
     body { color: #000; background: #fff; }

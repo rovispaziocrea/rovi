@@ -20,7 +20,6 @@
     background: linear-gradient(145deg, rgba(16, 30, 25, 0.85), rgba(46, 58, 54, 0.85));
 }
 
-
 .section.section-spaces .section-inner {
     position: relative;
     z-index: 2;
@@ -37,7 +36,7 @@
     margin-top: 3rem;
     margin-bottom: 3rem;
     width: 100%;
-    max-width: 1000px; /* Stessa larghezza massima del carosello */
+    max-width: 1000px;
 }
 
 .space-card {
@@ -112,12 +111,10 @@
     overflow: hidden;
 }
 
-/* ... resto del codice carousel rimane invariato ... */
-
 .carousel-inner {
     position: relative;
     width: 100%;
-    padding-top: 56.25%; /* Aspect ratio 16:9 */
+    padding-top: 56.25%;
 }
 
 .carousel-item {
@@ -220,6 +217,16 @@
 
 /* Responsive */
 @media (max-width: 768px) {
+    .section.section-spaces .section-inner {
+        padding: 0 1rem;
+    }
+
+    .section.section-spaces h2,
+    .section.section-spaces p {
+        padding: 0 1rem;
+        margin: 1rem 1rem 2rem 1rem;
+    }
+
     .spaces-container {
         grid-template-columns: 1fr;
         padding: 0 1rem;
@@ -238,5 +245,17 @@
     .carousel-thumb {
         width: 70px;
         height: 50px;
+    }
+}
+
+@media (max-width: 480px) {
+    .section.section-spaces .section-inner {
+        padding: 0 1.5rem;
+    }
+
+    .section.section-spaces h2,
+    .section.section-spaces p {
+        padding: 0 1.5rem;
+        margin: 1rem 1.5rem 2rem 1.5rem;
     }
 }
