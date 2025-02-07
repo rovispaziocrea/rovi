@@ -3,7 +3,7 @@ class Carousel {
         if (!element) return;
         
         this.carousel = element;
-        this.slides = Array.from(element.parentElement.querySelectorAll('.carousel-item'));
+        this.slides = Array.from(element.querySelectorAll('.carousel-item'));
         this.thumbs = Array.from(element.parentElement.querySelectorAll('.carousel-thumb'));
         this.prevBtn = element.querySelector('.carousel-prev');
         this.nextBtn = element.querySelector('.carousel-next');
@@ -15,28 +15,28 @@ class Carousel {
     }
     
     init() {
-        console.log('Initializing carousel with:', {
-            slides: this.slides.length,
-            thumbs: this.thumbs.length,
-            prevBtn: !!this.prevBtn,
-            nextBtn: !!this.nextBtn
-        });
-
         // Navigation buttons
-        this.prevBtn?.addEventListener('click', (e) => {
-            e.preventDefault();
-            this.prev();
-        });
+        if (this.prevBtn) {
+            this.prevBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                this.prev();
+            });
+        }
 
-        this.nextBtn?.addEventListener('click', (e) => {
-            e.preventDefault();
-            this.next();
-        });
+        if (this.nextBtn) {
+            this.nextBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                this.next();
+            });
+        }
         
         // Thumbnails
         this.thumbs.forEach((thumb, index) => {
-            thumb.addEventListener('click', () => {
-                console.log('Thumbnail clicked:', index);
+            thumb.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
                 this.goToSlide(index);
             });
         });
@@ -73,7 +73,6 @@ class Carousel {
     }
 }
 
-// Initialize carousel when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
     const carousels = document.querySelectorAll('.carousel');
     carousels.forEach(carousel => new Carousel(carousel));

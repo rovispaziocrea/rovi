@@ -13,14 +13,14 @@ async function loadSection(containerId, sectionFile) {
         const container = document.getElementById(containerId);
         if (container) {
             container.innerHTML = html;
-            initializeSection(sectionFile);
+            initializeSection(sectionFile, containerId);
         }
     } catch (error) {
         console.error(`Error loading section ${sectionFile}:`, error);
     }
 }
 
-function initializeSection(sectionFile) {
+function initializeSection(sectionFile, containerId) {
     switch (sectionFile) {
         case 'contact.html':
             setupContactForm();
@@ -31,6 +31,17 @@ function initializeSection(sectionFile) {
         case 'spaces.html':
             initializeCarousel();
             break;
+    }
+
+    // Make section collapsible if needed
+    if (containerId && [
+        'about-project-container',
+        'about-research-container',
+        'services-container',
+        'spaces-container',
+        'events-container'
+    ].includes(containerId)) {
+        makeCollapsible(containerId);
     }
 }
 

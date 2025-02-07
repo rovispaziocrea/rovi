@@ -1,4 +1,3 @@
-/* Reset e base */
 .section.section-spaces {
     background-image: url('/assets/spaces/spazicoworking.jpg');
     background-size: cover;
@@ -8,6 +7,8 @@
     width: 100vw;
     margin-left: 50%;
     transform: translateX(-50%);
+    padding: 4rem 0;
+    overflow-x: hidden;
 }
 
 .section.section-spaces::before {
@@ -17,57 +18,97 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(145deg, rgba(16, 30, 25, 0.85), rgba(46, 58, 54, 0.85));
+    background: linear-gradient(145deg, rgba(16, 30, 25, 0.9), rgba(46, 58, 54, 0.9));
 }
 
-.section.section-spaces .section-inner {
-    position: relative;
-    z-index: 2;
+.section.section-spaces .section-header h2,
+.section.section-spaces .section-header p {
+    color: #fff !important;
+}
+
+/* Carousel specifico per la sezione spaces */
+.spaces-carousel .carousel {
+    max-width: 900px;
+    margin: 0 auto 2rem;
+    box-shadow: 0 8px 24px rgba(16, 30, 25, 0.15);
+}
+
+.spaces-carousel .carousel-item img {
+    background-color: rgba(16, 30, 25, 0.05);
+}
+
+.spaces-carousel .carousel-controls button {
+    background-color: rgba(255, 255, 255, 0.95);
+    color: var(--color-primary);
+    border: 1px solid rgba(16, 30, 25, 0.1);
+}
+
+.spaces-carousel .carousel-thumbnails {
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
 }
 
-/* Container e Cards */
+.spaces-carousel .carousel-thumb {
+    width: 120px;
+    height: 80px;
+    border-radius: 8px;
+    overflow: hidden;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.spaces-carousel .carousel-thumb.active {
+    opacity: 1;
+    border-color: var(--color-tertiary);
+    transform: translateY(-4px);
+}
+
+/* Cards specifiche per la sezione spaces */
 .spaces-container {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
     margin-top: 3rem;
-    margin-bottom: 3rem;
-    width: 100%;
-    max-width: 1000px;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 1rem;
 }
 
 .space-card {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 12px;
+    padding: 1.5rem;
+    transition: transform 0.3s ease;
     display: flex;
     flex-direction: column;
     height: 100%;
-    background: linear-gradient(145deg, rgba(16, 30, 25, 0.8), rgba(46, 58, 54, 0.8));
-    backdrop-filter: blur(8px);
-    padding: 2rem;
-    border-radius: 12px;
-    transition: transform var(--transition-normal), box-shadow var(--transition-normal),
-                background 0.3s ease;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    min-height: 320px;
 }
 
 .space-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
-    background: linear-gradient(145deg, rgba(16, 30, 25, 0.9), rgba(46, 58, 54, 0.9));
+}
+
+.space-card i {
+    font-size: 2rem;
+    color: var(--color-tertiary);
+    margin-bottom: 0.75rem;
 }
 
 .space-card h4 {
-    font-size: 1.5rem;
-    margin: 1rem 0;
-    color: white;
+    color: var(--color-primary);
+    margin-bottom: 0.75rem;
+    font-size: 1.25rem;
 }
 
 .space-card p {
-    margin-bottom: 1.5rem;
-    color: rgba(255, 255, 255, 0.9);
-    line-height: 1.6;
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
 }
 
 .space-features {
@@ -77,185 +118,111 @@
 }
 
 .space-features li {
-    color: rgba(255, 255, 255, 0.9);
-    margin-bottom: 0.8rem;
-    padding-left: 1.5rem;
+    padding: 0.35rem 0;
+    color: var(--color-text);
     position: relative;
+    padding-left: 1.25rem;
+    font-size: 0.9rem;
 }
 
 .space-features li::before {
-    content: "→";
-    position: absolute;
-    left: 0;
+    content: "•";
     color: var(--color-tertiary);
-}
-
-.space-card i {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-    color: var(--color-tertiary);
-}
-
-/* Carousel principale */
-.spaces-carousel {
-    margin-top: 4rem;
-    width: 100%;
-    max-width: 1000px;
-}
-
-.carousel {
-    position: relative;
-    margin-bottom: 1rem;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 12px;
-    overflow: hidden;
-}
-
-.carousel-inner {
-    position: relative;
-    width: 100%;
-    padding-top: 56.25%;
-}
-
-.carousel-item {
     position: absolute;
-    top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    transition: opacity 0.5s ease;
 }
 
-.carousel-item.active {
-    opacity: 1;
+/* Aggiungiamo queste regole specifiche per il testo introduttivo */
+.section-header p {
+    max-width: 800px;
+    margin: 1rem auto;
+    padding: 0 2rem;
+    font-size: 1.1rem;
+    line-height: 1.6;
 }
 
-.carousel-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-}
-
-/* Controlli */
-.carousel-controls {
-    position: absolute;
-    top: 50%;
-    left: 0;
-    right: 0;
-    transform: translateY(-50%);
-    display: flex;
-    justify-content: space-between;
-    padding: 0 1rem;
-    z-index: 2;
-    pointer-events: none;
-}
-
-.carousel-prev,
-.carousel-next {
-    width: 40px;
-    height: 40px;
-    background: var(--color-tertiary);
-    border: none;
-    border-radius: 50%;
-    color: white;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.3s ease;
-    pointer-events: auto;
-}
-
-.carousel-prev:hover,
-.carousel-next:hover {
-    background: var(--color-primary);
-    transform: scale(1.1);
-}
-
-/* Thumbnails */
-.carousel-thumbnails {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-    margin-top: 1rem;
-    padding: 1rem;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 12px;
-}
-
-.carousel-thumb {
-    width: 100px;
-    height: 70px;
-    border-radius: 8px;
-    overflow: hidden;
-    cursor: pointer;
-    opacity: 0.6;
-    transition: all 0.3s ease;
-    border: 2px solid transparent;
-}
-
-.carousel-thumb:hover {
-    opacity: 0.8;
-}
-
-.carousel-thumb.active {
-    opacity: 1;
-    border-color: var(--color-tertiary);
-}
-
-.carousel-thumb img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.3s ease;
-}
-
-.carousel-thumb:hover img {
-    transform: scale(1.1);
-}
-
-/* Responsive */
 @media (max-width: 768px) {
-    .section.section-spaces .section-inner {
-        padding: 0 1rem;
+    .section.section-spaces {
+        padding: 1.5rem 0;
     }
 
-    .section.section-spaces h2,
-    .section.section-spaces p {
-        padding: 0 1rem;
-        margin: 1rem 1rem 2rem 1rem;
+    .section-header p {
+        padding: 0 1.5rem;
+        font-size: 1rem;
+        line-height: 1.5;
+    }
+
+    .spaces-carousel .carousel {
+        max-width: 100%;
+        margin: 0 1rem 1.5rem;
+        box-shadow: none;
     }
 
     .spaces-container {
+        padding: 0 1rem;
+    }
+
+    .space-card {
+        margin: 0 0.5rem;
+    }
+
+    .spaces-carousel .carousel-thumb {
+        width: 80px;
+        height: 60px;
+    }
+    
+    .spaces-container {
         grid-template-columns: 1fr;
-        padding: 0 1rem;
+        gap: 1.5rem;
     }
-
-    .spaces-carousel {
-        margin-top: 2rem;
-        padding: 0 1rem;
+    
+    .space-card {
+        padding: 1.25rem;
+        min-height: auto;
     }
-
-    .carousel-thumbnails {
-        gap: 0.5rem;
-        padding: 0.5rem;
+    
+    .space-card h4 {
+        font-size: 1.2rem;
     }
-
-    .carousel-thumb {
-        width: 70px;
-        height: 50px;
+    
+    .space-card p {
+        font-size: 0.9rem;
     }
 }
 
 @media (max-width: 480px) {
-    .section.section-spaces .section-inner {
-        padding: 0 1.5rem;
+    .section-header p {
+        padding: 0 1rem;
+        font-size: 0.95rem;
+        line-height: 1.4;
+        hyphens: auto;
+        word-wrap: break-word;
     }
 
-    .section.section-spaces h2,
-    .section.section-spaces p {
-        padding: 0 1.5rem;
-        margin: 1rem 1.5rem 2rem 1.5rem;
+    .spaces-carousel .carousel {
+        margin: 0 0.5rem 1rem;
+    }
+
+    .carousel-thumbnails {
+        flex-wrap: wrap;
+        padding: 0 0.5rem;
+    }
+
+    .space-card {
+        padding: 1rem;
+    }
+    
+    .space-card h4 {
+        font-size: 1.1rem;
+    }
+    
+    .space-card p {
+        font-size: 0.85rem;
+    }
+    
+    .space-features li {
+        font-size: 0.8rem;
     }
 }
+
+/* Resto del CSS spaces... */

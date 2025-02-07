@@ -1,14 +1,16 @@
 .section-contact {
-    background: linear-gradient(145deg, rgb(16, 30, 25) 0%, rgb(46, 58, 54) 100%);
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
+    background: var(--color-primary);
     padding: 4rem 0;
     color: white;
+    width: 100vw; /* Larghezza totale viewport */
+    margin-left: 50%;
+    transform: translateX(-50%); /* Centra la sezione */
+    position: relative;
 }
 
 /* Main Container */
 .contact-container {
+    width: 100%;
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 2rem;

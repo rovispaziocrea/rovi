@@ -58,4 +58,37 @@ document.addEventListener('DOMContentLoaded', function() {
             document.body.style.overflow = '';
         }
     });
+
+    // Aggiorna la funzione di smooth scrolling
+    function initSmoothScrolling() {
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if(href === "#") return;
+                
+                e.preventDefault();
+                const target = document.querySelector(href);
+                
+                if(target) {
+                    // Scroll alla sezione
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+
+                    // Apri la scheda se è un accordion
+                    if(target.classList.contains('collapsed')) {
+                        const toggleBtn = target.querySelector('[data-bs-toggle="collapse"]');
+                        if(toggleBtn) toggleBtn.click();
+                    }
+                }
+            });
+        });
+    }
+
+    // Chiama la funzione all'avvio
+    initSmoothScrolling();
+
+    // Ricarica gli eventi dopo eventuali modifiche DOM
+    document.addEventListener('DOMNodeInserted', initSmoothScrolling);
 });

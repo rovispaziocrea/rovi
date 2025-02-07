@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="css/utils/animations.css">
     <link rel="stylesheet" href="css/components/navbar.css">
     <link rel="stylesheet" href="css/components/header.css">
+    <link rel="stylesheet" href="css/components/collapsible-sections.css">
     <link rel="stylesheet" href="css/components/modal.css">
     <link rel="stylesheet" href="css/components/toast.css">
     <link rel="stylesheet" href="css/components/carousel.css">
@@ -47,8 +48,7 @@
 
     <!-- Header -->
     <header class="header">
-        <!-- Background Video -->
-        <video class="header-background" autoplay muted playsinline preload="auto">
+        <video class="header-background" autoplay muted loop playsinline preload="auto">
             <source src="assets/background/videobackgorund3.webm" type="video/webm">
             <source src="assets/background/videobackgorund3.mp4" type="video/mp4">
         </video>
@@ -60,43 +60,75 @@
 
     <!-- Main Content -->
     <main class="main-content">
-        <!-- Il Progetto (sfondo bianco) -->
-        <section class="section section-white">
-            <div class="section-inner">
-                <div id="about-project-container"></div>
-            </div>
-        </section>
-    
-        <!-- Ricerca (sfondo colorato) -->
-        <section class="section section-colored">
-            <div class="section-inner">
-                <div id="about-research-container"></div>
-            </div>
-        </section>
-    
-        <!-- Servizi (sfondo bianco) -->
-        <section class="section section-white">
-            <div class="section-inner">
-                <div id="services-container"></div>
-            </div>
-        </section>
-    
-        <!-- Spazi (sfondo colorato) -->
-        <section class="section section-colored">
-            <div class="section-inner">
-                <div id="spaces-container"></div>
-            </div>
-        </section>
-    
-        <!-- Eventi (sfondo bianco) -->
-        <section class="section section-white">
-            <div class="section-inner">
-                <div id="events-container"></div>
-            </div>
-        </section>
-    
-        <!-- Contatti (sfondo colorato) -->
-        <section class="section section-colored">
+        <div class="card-stack">
+            <!-- Il Progetto -->
+            <section class="card" data-index="1" id="about">
+                <div class="card-header">
+                    <h2 class="card-title">IL PROGETTO</h2>
+                    <button type="button" class="toggle-btn">
+                        <span class="material-icons">expand_less</span>
+                    </button>
+                </div>
+                <div class="card-content">
+                    <div id="about-project-container"></div>
+                </div>
+            </section>
+
+            <!-- Ricerca -->
+            <section class="card minimized" data-index="2" id="research">
+                <div class="card-header">
+                    <h2 class="card-title">RICERCA</h2>
+                    <button type="button" class="toggle-btn">
+                        <span class="material-icons">expand_less</span>
+                    </button>
+                </div>
+                <div class="card-content">
+                    <div id="about-research-container"></div>
+                </div>
+            </section>
+
+            <!-- Servizi -->
+            <section class="card minimized" data-index="3" id="services">
+                <div class="card-header">
+                    <h2 class="card-title">SERVIZI</h2>
+                    <button type="button" class="toggle-btn">
+                        <span class="material-icons">expand_less</span>
+                    </button>
+                </div>
+                <div class="card-content">
+                    <div id="services-container"></div>
+                </div>
+            </section>
+
+            <!-- Spazi -->
+            <section class="card minimized" data-index="4" id="spaces">
+                <div class="card-header">
+                    <h2 class="card-title">SPAZI</h2>
+                    <button type="button" class="toggle-btn">
+                        <span class="material-icons">expand_less</span>
+                    </button>
+                </div>
+                <div class="card-content">
+                    <div id="spaces-container"></div>
+                </div>
+            </section>
+
+            <!-- Eventi -->
+            <section class="card minimized" data-index="5" id="events">
+                <div class="card-header">
+                    <h2 class="card-title">EVENTI</h2>
+                    <button type="button" class="toggle-btn">
+                        <span class="material-icons">expand_less</span>
+                    </button>
+                </div>
+                <div class="card-content">
+                    <div id="events-container"></div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Contatti (non nella stack) -->
+        <section class="section section-colored" id="contact">
             <div class="section-inner">
                 <div id="contact-container"></div>
             </div>
@@ -108,8 +140,9 @@
 
     <!-- JavaScript -->
     <script src="js/modules/navbar.js"></script>
+    <script src="js/modules/section-loader.js"></script>
+    <script src="js/modules/collapsible-sections.js"></script>
     <script src="js/modules/animations.js"></script>
-    <script src="js/modules/scroll.js"></script>
     <script src="js/modules/carousel.js"></script>
     <script src="js/main.js"></script>
     <script src="js/header.js"></script>

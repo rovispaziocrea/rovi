@@ -1,0 +1,208 @@
+.card-stack {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    scroll-margin-top: 100px;
+}
+
+.card {
+    position: relative;
+    background: var(--color-white);
+    border-radius: 20px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    margin-bottom: 24px;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    overflow: hidden;
+    transform-origin: center;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.18);
+}
+
+.card-header {
+    padding: 24px 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 20px 20px 0 0;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    z-index: 2;
+}
+
+/* Gradienti migliorati */
+.card:nth-child(1) .card-header {
+    background: linear-gradient(135deg, #757f7d 0%, #5a6462 100%);
+}
+
+.card:nth-child(2) .card-header {
+    background: linear-gradient(135deg, #757f7d 0%, var(--color-tertiary) 100%);
+}
+
+.card:nth-child(3) .card-header {
+    background: linear-gradient(135deg, var(--color-tertiary) 0%, #ff8f6b 100%);
+}
+
+.card:nth-child(4) .card-header {
+    background: linear-gradient(135deg, var(--color-tertiary) 0%, var(--color-primary) 100%);
+}
+
+.card:nth-child(5) .card-header {
+    background: linear-gradient(135deg, var(--color-primary) 0%, #0a1f1a 100%);
+}
+
+.card-title {
+    font-family: var(--font-primary);
+    font-size: 1.75rem;
+    font-weight: 600;
+    margin: 0;
+    color: var(--color-white);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.card:hover .card-title {
+    transform: translateX(8px);
+}
+
+.toggle-btn {
+    background: rgba(255, 255, 255, 0.15);
+    border: none;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    backdrop-filter: blur(4px);
+}
+
+.toggle-btn:hover {
+    background: rgba(255, 255, 255, 0.25);
+    transform: rotate(180deg);
+}
+
+.toggle-btn .material-icons {
+    font-size: 24px;
+    color: var(--color-white);
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-content {
+    background: var(--color-white);
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    opacity: 1;
+    transform: translateY(0);
+    padding: 32px;
+    position: relative;
+    z-index: 1;
+}
+
+/* Stato minimizzato con animazioni migliorate */
+.card.minimized {
+    margin-bottom: 20px;
+    transform: scale(0.98);
+}
+
+.minimized .card-content {
+    max-height: 0;
+    opacity: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    transform: translateY(-20px);
+    pointer-events: none;
+}
+
+.minimized .toggle-btn .material-icons {
+    transform: rotate(180deg);
+}
+
+.minimized:hover {
+    transform: scale(0.99) translateY(-2px);
+}
+
+/* Indicatore di progresso visivo */
+.card::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 4px;
+    width: 0;
+    background: linear-gradient(90deg, rgba(255,255,255,0.5) 0%, rgba(255,255,255,0.8) 100%);
+    transition: width 0.4s ease-out;
+    z-index: 3;
+}
+
+.card:not(.minimized)::before {
+    width: 100%;
+}
+
+/* Media queries ottimizzate */
+@media (max-width: 768px) {
+    .card-stack {
+        padding: 16px;
+        scroll-margin-top: 80px;
+    }
+    
+    .card {
+        border-radius: 16px;
+        margin-bottom: 20px;
+    }
+    
+    .card-header {
+        padding: 20px 24px;
+    }
+    
+    .card-title {
+        font-size: 1.5rem;
+    }
+    
+    .card-content {
+        padding: 24px;
+    }
+    
+    .toggle-btn {
+        width: 38px;
+        height: 38px;
+    }
+}
+
+@media (max-width: 480px) {
+    .card-stack {
+        padding: 12px;
+        scroll-margin-top: 60px;
+    }
+    
+    .card {
+        border-radius: 14px;
+        margin-bottom: 16px;
+    }
+    
+    .card-header {
+        padding: 16px 20px;
+    }
+    
+    .card-title {
+        font-size: 1.25rem;
+    }
+    
+    .toggle-btn {
+        width: 34px;
+        height: 34px;
+    }
+    
+    .toggle-btn .material-icons {
+        font-size: 20px;
+    }
+    
+    .card-content {
+        padding: 20px;
+    }
+}
