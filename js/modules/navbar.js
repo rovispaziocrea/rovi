@@ -78,8 +78,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
                     // Apri la scheda se è un accordion
                     if(target.classList.contains('collapsed')) {
-                        const toggleBtn = target.querySelector('[data-bs-toggle="collapse"]');
-                        if(toggleBtn) toggleBtn.click();
+                        const toggleBtn = target.querySelector('.toggle-btn');
+                        if(toggleBtn) {
+                            toggleBtn.click();
+                            target.classList.remove('minimized');
+                        }
                     }
                 }
             });

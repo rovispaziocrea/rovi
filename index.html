@@ -62,15 +62,15 @@
     <main class="main-content">
         <div class="card-stack">
             <!-- Il Progetto -->
-            <section class="card" data-index="1" id="about">
+            <section class="card collapsed" data-index="1" id="about">
                 <div class="card-header">
                     <h2 class="card-title">IL PROGETTO</h2>
-                    <button type="button" class="toggle-btn">
+                    <button type="button" class="toggle-btn" data-bs-toggle="collapse" data-bs-target="#about-project-container">
                         <span class="material-icons">expand_less</span>
                     </button>
                 </div>
-                <div class="card-content">
-                    <div id="about-project-container"></div>
+                <div class="card-content collapse" id="about-project-container">
+                    <!-- Contenuto -->
                 </div>
             </section>
 
