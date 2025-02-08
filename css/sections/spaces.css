@@ -2,12 +2,12 @@
     background-image: url('/assets/spaces/spazicoworking.jpg');
     background-size: cover;
     background-position: center;
-    background-attachment: fixed;
+    background-attachment: scroll;
     position: relative;
-    width: 100vw;
-    margin-left: 50%;
-    transform: translateX(-50%);
-    padding: 4rem 0;
+    width: 100%;
+    margin-left: 0;
+    transform: none;
+    padding: 2rem 0;
     overflow-x: hidden;
 }
 
@@ -18,7 +18,8 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(145deg, rgba(16, 30, 25, 0.9), rgba(46, 58, 54, 0.9));
+    background: linear-gradient(145deg, rgba(16, 30, 25, 0.95), rgba(46, 58, 54, 0.85));
+    backdrop-filter: blur(4px);
 }
 
 .section.section-spaces .section-header h2,
@@ -154,16 +155,21 @@
 
     .spaces-carousel .carousel {
         max-width: 100%;
-        margin: 0 1rem 1.5rem;
+        margin: 0 0.5rem 1rem;
         box-shadow: none;
+        height: 300px;
     }
 
     .spaces-container {
-        padding: 0 1rem;
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        padding: 0 0.5rem;
     }
 
     .space-card {
-        margin: 0 0.5rem;
+        width: 100%;
+        margin: 0;
+        padding: 1.5rem;
     }
 
     .spaces-carousel .carousel-thumb {
@@ -171,22 +177,8 @@
         height: 60px;
     }
     
-    .spaces-container {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-    }
-    
-    .space-card {
-        padding: 1.25rem;
-        min-height: auto;
-    }
-    
-    .space-card h4 {
-        font-size: 1.2rem;
-    }
-    
-    .space-card p {
-        font-size: 0.9rem;
+    .space-features li {
+        padding: 0.5rem 0;
     }
 }
 
@@ -201,6 +193,7 @@
 
     .spaces-carousel .carousel {
         margin: 0 0.5rem 1rem;
+        height: 250px;
     }
 
     .carousel-thumbnails {
@@ -209,7 +202,7 @@
     }
 
     .space-card {
-        padding: 1rem;
+        padding: 1.2rem;
     }
     
     .space-card h4 {

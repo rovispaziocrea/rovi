@@ -8,7 +8,7 @@
 
 .section.section-events {
     background: var(--color-background);
-    padding: 4rem 0;
+    padding: 3rem 0;
 }
 
 .events-container {
@@ -21,10 +21,12 @@
 }
 
 .event-card {
-    background: var(--color-white);
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
     border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
     transition: all 0.3s ease;
     display: flex;
     flex-direction: column;
@@ -118,25 +120,25 @@
 
 @media (max-width: 768px) {
     .events-container {
+        grid-template-columns: 1fr;
         gap: 1.5rem;
+        padding: 0 0.5rem;
     }
-    
+
     .event-card {
-        padding: 1.25rem;
+        width: 100%;
+        margin: 0;
+        padding: 1.5rem;
     }
-    
-    .event-card h4 {
-        font-size: 1.2rem;
-    }
-    
-    .event-card p {
-        font-size: 0.9rem;
+
+    .event-image {
+        height: 200px;
     }
 }
 
 @media (max-width: 480px) {
     .event-card {
-        padding: 1rem;
+        padding: 1.2rem;
     }
     
     .event-card h4 {
@@ -147,11 +149,7 @@
         font-size: 0.85rem;
     }
     
-    .event-features li {
-        font-size: 0.8rem;
-    }
-    
     .event-image {
-        height: 140px;
+        height: 160px;
     }
 }

@@ -79,6 +79,35 @@
     h3 { font-size: var(--font-size-2xl); }
     
     .section-padding { padding: var(--space-xl) 0; }
+
+    .card-stack {
+        padding: 0 1rem;
+    }
+
+    .card {
+        padding: 1.5rem !important;
+        margin: 0 0 2rem 0 !important;
+    }
+
+    .card-header {
+        padding: 1rem 1.5rem !important;
+    }
+
+    .card-title {
+        font-size: 1.3rem !important;
+        line-height: 1.4;
+    }
+
+    .card-content p {
+        font-size: 0.95rem !important;
+        line-height: 1.6;
+        margin-bottom: 1rem;
+    }
+
+    p, li {
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
 }
 
 /* Mobile Large */
@@ -181,4 +210,19 @@
     body { color: #000; background: #fff; }
     a { text-decoration: underline; }
     .container { max-width: none; padding: 0; }
+}
+
+@media (max-width: 480px) {
+    .card {
+        padding: 1.2rem !important;
+        border-radius: 12px !important;
+    }
+
+    .card-title {
+        font-size: 1.2rem !important;
+    }
+
+    p, li {
+        font-size: 0.85rem;
+    }
 }

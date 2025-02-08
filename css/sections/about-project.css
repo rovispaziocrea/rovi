@@ -44,35 +44,24 @@
 }
 
 .mission-container {
-    padding: 2.5rem;
-    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
-    border-radius: 24px;
-    box-shadow: 0 8px 16px rgba(0,0,0,0.06);
-    margin-bottom: 4rem;
+    padding: 0;
+    background: transparent;
+    box-shadow: none;
+    margin-bottom: 0;
 }
 
 .mission-points {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
-    margin: 2rem 0;
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
 }
 
 .mission-point {
-    background: white;
-    padding: 2rem;
-    border-radius: 16px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.04);
-    display: flex;
-    align-items: flex-start;
-    gap: 1.5rem;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    animation: fadeInRotate 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
-}
-
-.mission-point:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 12px 24px rgba(0,0,0,0.08);
+    width: 100%;
+    margin: 0 0 1.5rem 0;
 }
 
 .mission-point i {
@@ -100,11 +89,64 @@
 
 /* Media queries */
 @media (max-width: 768px) {
+    .section-about {
+        max-width: 100%;
+        padding: 1rem;
+    }
+
+    .vision-card {
+        width: 100%;
+        margin: 0;
+        box-sizing: border-box;
+    }
+
     .mission-points {
         grid-template-columns: 1fr;
+        gap: 1.5rem;
+        padding: 0 0.5rem;
+    }
+
+    .mission-point {
+        padding: 1.5rem;
+    }
+
+    .vision-card::before {
+        display: none; /* Disabilita effetto hover su mobile */
+    }
+
+    .vision-card:hover {
+        transform: none; /* Rimuove animazioni hover */
+    }
+
+    .mission-point:hover {
+        transform: none;
+    }
+
+    h2.card-title {
+        font-size: 1.4rem;
+    }
+
+    p {
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+}
+
+@media (max-width: 480px) {
+    .mission-point {
+        padding: 1rem;
     }
     
-    .section-about {
-        padding: 2rem 1rem;
+    .vision-card {
+        padding: 1.2rem 0.8rem;
+    }
+    
+    h2.card-title {
+        font-size: 1.3rem;
+        padding: 0 0.5rem;
+    }
+    
+    p {
+        padding: 0 0.5rem;
     }
 }
