@@ -20,6 +20,19 @@ async function loadSection(containerId, sectionFile) {
     }
 }
 
+async function initializeSection(sectionId, html) {
+    const container = document.getElementById(sectionId);
+    if (container) {
+        container.innerHTML = html;
+        const collapsibles = container.querySelectorAll('.collapsible');
+        collapsibles.forEach(makeCollapsible);
+        
+        if (sectionId === 'spaces') {
+            initializeCarousel();
+        }
+    }
+}
+
 function initializeSection(sectionFile, containerId) {
     switch (sectionFile) {
         case 'contact.html':
