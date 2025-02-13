@@ -108,6 +108,30 @@
         font-size: 0.9rem;
         line-height: 1.5;
     }
+
+    .navbar {
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        transition: background 0.3s ease;
+    }
+
+    .mobile-menu-active .navbar {
+        background: rgba(255, 255, 255, 0.95);
+    }
+
+    .nav-links {
+        background: rgba(255, 255, 255, 0.95);
+    }
+
+    /* Aggiungi scroll listener */
+    window.addEventListener('scroll', () => {
+        const navbar = document.querySelector('.navbar');
+        if(window.scrollY > 50) {
+            navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+        } else {
+            navbar.style.background = 'rgba(255, 255, 255, 0.1)';
+        }
+    });
 }
 
 /* Mobile Large */

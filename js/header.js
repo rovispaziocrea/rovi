@@ -10,8 +10,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Effetto parallax
     function parallaxEffect() {
-    const scrollPosition = window.scrollY;
-    video.style.transform = `translateZ(-1px) scale(2) translateY(${scrollPosition * 0.5}px)`;
+        if(window.innerWidth > 768) {
+            const scrollPosition = window.scrollY;
+            video.style.transform = `translateZ(-1px) scale(2) translateY(${scrollPosition * 0.5}px)`;
+        }
     }
 
     // Riavvia il video quando finisce

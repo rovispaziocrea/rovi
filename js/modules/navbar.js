@@ -70,19 +70,23 @@ document.addEventListener('DOMContentLoaded', function() {
                 const target = document.querySelector(href);
                 
                 if(target) {
-                    // Scroll alla sezione
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
+                    const scrollToSection = () => {
+                        const targetRect = target.getBoundingClientRect();
+                        const navHeight = document.querySelector('.navbar').offsetHeight;
+                        const sectionHeader = target.querySelector('.section-header');
+                        const headerHeight = sectionHeader ? sectionHeader.offsetHeight : 0;
+                        
+                        window.scrollTo({
+                            top: window.pageYOffset + targetRect.top - navHeight - 20,
+                            behavior: 'smooth'
+                        });
+                    };
 
-                    // Apri la scheda se è un accordion
-                    if(target.classList.contains('collapsed')) {
-                        const toggleBtn = target.querySelector('.toggle-btn');
-                        if(toggleBtn) {
-                            toggleBtn.click();
-                            target.classList.remove('minimized');
-                        }
+                    // Aspetta il rendering delle animazioni
+                    if(target.querySelector('.animate')) {
+                        setTimeout(scrollToSection, 300);
+                    } else {
+                        scrollToSection();
                     }
                 }
             });
@@ -100,4 +104,19 @@ document.addEventListener('DOMContentLoaded', function() {
         e.preventDefault();
         window.scrollTo({ top: 0, behavior: 'smooth' });
     });
+
+    // Aggiungi dopo la funzione initSmoothScrolling
+    function handleNavbarScroll() {
+        const navbar = document.querySelector('.navbar');
+        if(window.innerWidth <= 768) {
+            if(window.scrollY > 50) {
+                navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+            } else {
+                navbar.style.background = 'rgba(255, 255, 255, 0.1)';
+            }
+        }
+    }
+
+    window.addEventListener('scroll', handleNavbarScroll);
+    window.addEventListener('resize', handleNavbarScroll);
 });
