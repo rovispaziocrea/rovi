@@ -94,4 +94,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Ricarica gli eventi dopo eventuali modifiche DOM
     document.addEventListener('DOMNodeInserted', initSmoothScrolling);
+
+    // Aggiungi questo codice dopo la riga 61
+    document.querySelector('.nav-logo').addEventListener('click', (e) => {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
 });
