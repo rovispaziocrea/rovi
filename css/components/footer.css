@@ -105,6 +105,40 @@
     font-size: 0.9rem;
 }
 
+.brand-contacts {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 0.5rem;
+}
+
+.footer-instagram {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    background: rgba(255,255,255,0.05);
+    transition: all 0.3s ease;
+    text-decoration: none;
+    color: rgba(255,255,255,0.9);
+    font-size: 0.95rem;
+}
+
+.footer-instagram i {
+    color: var(--color-tertiary);
+    font-size: 1.1rem;
+}
+
+.footer-instagram:hover {
+    background: var(--color-tertiary);
+    color: white;
+}
+
+.footer-instagram:hover i {
+    color: white;
+}
+
 /* Responsive */
 @media (max-width: 768px) {
     .footer-content {
@@ -143,5 +177,20 @@
     .footer-bottom p {
         margin: 0;
         padding: 0 1rem 0.5rem;
+    }
+
+    .brand-contacts {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.8rem;
+    }
+    
+    .footer-instagram {
+        font-size: 0.9rem;
+        padding: 0.5rem 0.8rem;
+    }
+    
+    .footer-instagram i {
+        font-size: 1.1rem;
     }
 }

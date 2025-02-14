@@ -206,3 +206,9 @@
         padding: 0 0.5rem;
     }
 }
+
+.highlight-text {
+    color: var(--color-tertiary);
+    font-weight: 600;
+    padding: 0 2px;
+}
