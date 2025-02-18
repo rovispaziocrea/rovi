@@ -57,6 +57,18 @@
     padding: 0 1rem;
 }
 
+.mission-intro h3 {
+    text-align: left;
+    color: var(--color-primary);
+    font-size: 1.5rem;
+    margin: 3rem 0 2rem;
+}
+
+.responsive-image { 
+    width: 100%; 
+    margin: 2rem 0;
+}
+
 .mission-points {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -209,6 +221,6 @@
 
 .highlight-text {
     color: var(--color-tertiary);
-    font-weight: 600;
+    font-weight: 700;
     padding: 0 2px;
 }
