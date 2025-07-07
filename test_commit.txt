@@ -1,0 +1,2 @@
+File di test per verifica commit e push.
+Data: 7 luglio 2025
