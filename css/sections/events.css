@@ -134,18 +134,25 @@
 }
 
 @media (max-width: 768px) {
+    .section.section-events {
+        padding: 2rem 0;
+    }
+
     .events-container {
         grid-template-columns: 1fr;
-        gap: 0.75rem;
-        padding: 0 0.5rem;
+        gap: 0.875rem;
+        padding: 0 0.75rem;
+        margin: 1.5rem auto 0;
+        max-width: 100%;
     }
 
     .event-card {
-        padding: 0.75rem;
+        padding: 1rem;
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
         gap: 0.75rem;
-        border-radius: 8px;
+        border-radius: 10px;
+        align-items: flex-start;
     }
 
     .event-card i {
@@ -154,25 +161,30 @@
 
     .event-image {
         height: 80px;
+        width: 80px;
+        min-width: 80px;
+        flex-shrink: 0;
         margin-bottom: 0;
         border-radius: 6px;
-        align-self: center;
+        align-self: flex-start;
     }
 
     .event-content {
         width: 100%;
+        flex: 1;
     }
 
     .event-card h4 {
         font-size: 1rem;
-        margin-bottom: 0.2rem;
-        line-height: 1.2;
+        margin-bottom: 0.4rem;
+        line-height: 1.3;
+        font-weight: 600;
     }
 
     .event-card p {
-        font-size: 0.8rem;
-        line-height: 1.3;
-        margin-bottom: 0.3rem;
+        font-size: 0.75rem;
+        line-height: 1.4;
+        margin-bottom: 0.5rem;
         -webkit-line-clamp: 2;
         line-clamp: 2;
         display: -webkit-box;
@@ -184,29 +196,35 @@
         max-height: 0;
         overflow: hidden;
         transition: max-height 0.3s ease;
-        margin-top: 0.3rem;
+        margin-top: 0.25rem;
     }
 
     .event-features.show {
-        max-height: 500px;
+        max-height: 300px;
     }
 
     .event-features li {
-        padding: 0.2rem 0;
-        font-size: 0.75rem;
-        line-height: 1.2;
+        padding: 0.15rem 0;
+        font-size: 0.7rem;
+        line-height: 1.3;
+        padding-left: 1rem;
     }
 
-    /* Pulsante toggle ben visibile e senza regola "content" */
+    .event-features li::before {
+        left: 0;
+        font-size: 0.8rem;
+    }
+
+    /* Pulsante toggle più compatto */
     .event-card .toggle-details {
         text-align: center;
         color: var(--color-tertiary);
-        font-size: 0.85rem;
+        font-size: 0.7rem;
         font-weight: 500;
         background: rgba(var(--color-tertiary-rgb), 0.1);
-        padding: 0.5rem;
-        border-radius: 6px;
-        margin-top: 0.5rem;
+        padding: 0.3rem 0.5rem;
+        border-radius: 4px;
+        margin-top: 0.4rem;
         cursor: pointer;
         pointer-events: all;
     }
@@ -215,30 +233,53 @@
 @media (max-width: 480px) {
     .events-container {
         grid-template-columns: 1fr;
-        gap: 0.5rem;
+        gap: 0.75rem;
+        padding: 0 0.5rem;
+        margin: 1rem auto 0;
     }
 
     .event-card {
-        padding: 0.6rem;
-        grid-template-columns: 70px 1fr;
-        gap: 0.6rem;
-    }
-    
-    .event-card h4 {
-        font-size: 1rem; /* Further adjusted font size for even smaller screens */
-    }
-    
-    .event-card p {
-        font-size: 0.75rem; /* Further adjusted font size for even smaller screens */
-        -webkit-line-clamp: 1;
-        line-clamp: 1;
+        padding: 0.75rem;
+        gap: 0.5rem;
+        flex-direction: row;
+        align-items: flex-start;
     }
     
     .event-image {
         height: 70px;
+        width: 70px;
+        min-width: 70px;
+        border-radius: 5px;
+    }
+    
+    .event-card h4 {
+        font-size: 0.9rem;
+        margin-bottom: 0.3rem;
+        line-height: 1.2;
+    }
+    
+    .event-card p {
+        font-size: 0.7rem;
+        line-height: 1.3;
+        margin-bottom: 0.4rem;
+        -webkit-line-clamp: 2;
+        line-clamp: 2;
     }
 
     .event-features li {
-        font-size: 0.7rem; /* Further adjusted font size for even smaller screens */
+        font-size: 0.65rem;
+        line-height: 1.2;
+        padding: 0.1rem 0;
+        padding-left: 0.8rem;
+    }
+
+    .event-features li::before {
+        font-size: 0.7rem;
+    }
+
+    .event-card .toggle-details {
+        font-size: 0.65rem;
+        padding: 0.25rem 0.4rem;
+        margin-top: 0.3rem;
     }
 }

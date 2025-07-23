@@ -212,112 +212,214 @@ h3.animate.fade-in {
 }
 
 @media (max-width: 768px) {
+    .mission-container {
+        padding: 0.75rem 0.5rem;
+    }
+
+    .mission-intro {
+        font-size: 1.1rem;
+        padding: 0 0.5rem;
+        margin: 1rem 0;
+        line-height: 1.4;
+    }
+
     .research-grid,
     .research-grid.grid-3,
-    .research-grid.grid-2 {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-        padding: 0 0.5rem;
-    }
-    
-    .research-card {
-        padding: 1rem;
-    }
-
-    .mission-container {
-        padding: 1rem 0.5rem;
-    }
-
-    .mission-intro {
-        font-size: 1.2rem;
-        padding: 0 1rem;
-        margin: 1.5rem 0;
-    }
-
-    .research-number {
-        font-size: 1.4rem;
-    }
-
-    .research-label {
-        font-size: 0.85rem;
-    }
-
-    .research-intro h3 {
-        font-size: 1.15rem;
-        margin: 1.2rem 0;
-    }
-
+    .research-grid.grid-2,
     .research-grid.grid-4 {
-        grid-template-columns: 1fr;
-    }
-
-    .demographic-chart {
-        padding: 1rem;
-        margin: 1rem 0;
-    }
-
-    .demographic-chart-title {
-        font-size: 1rem;
-    }
-
-    .demographic-stat {
-        padding: 0.8rem;
-    }
-
-    .demographic-stat-value {
-        font-size: 1.2rem;
-    }
-
-    .section-title {
-        font-size: 1.6rem;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.75rem;
+        padding: 0 0.5rem;
+        margin-bottom: 1.5rem;
     }
     
-    .lead-text {
-        font-size: 1rem;
-        padding: 0 1rem;
-    }
-    
-    .section-subtitle {
-        font-size: 1.1rem;
-        margin: 1.5rem 0 1rem;
-    }
-    
-    .text-block {
-        font-size: 0.95rem;
-        padding: 0 1rem;
-    }
-    
-    .stats-grid.grid-3,
-    .stats-grid.grid-2 {
-        grid-template-columns: 1fr;
-        gap: 1rem;
-    }
-}
-
-@media (max-width: 480px) {
     .research-card {
-        padding: 1rem;
-    }
-
-    .mission-intro {
-        font-size: 1.1rem;
-        line-height: 1.35;
-    }
-
-    .research-number {
-        font-size: 1.3rem;
-    }
-
-    .research-label {
-        font-size: 0.75rem;
+        padding: 0.75rem;
+        gap: 0.5rem;
     }
 
     .research-card i {
         font-size: 1.5rem;
     }
 
-    h3.animate.fade-in {
+    .research-number {
+        font-size: 1.2rem;
+        margin-bottom: 0.3rem;
+    }
+
+    .research-label {
+        font-size: 0.75rem;
+        line-height: 1.3;
+    }
+
+    .research-intro h3 {
         font-size: 1.05rem;
+        margin: 1rem 0 0.75rem;
+        padding: 0 0.5rem;
+        line-height: 1.3;
+    }
+
+    .demographic-chart {
+        padding: 0.875rem;
+        margin: 0.75rem 0;
+    }
+
+    .demographic-chart-title {
+        font-size: 0.9rem;
+        margin-bottom: 0.75rem;
+    }
+
+    .demographic-stat {
+        padding: 0.6rem;
+    }
+
+    .demographic-stat-value {
+        font-size: 1.1rem;
+    }
+
+    .demographic-stat-label {
+        font-size: 0.8rem;
+    }
+
+    .section-title {
+        font-size: 1.4rem;
+        line-height: 1.3;
+        margin-bottom: 1rem;
+    }
+    
+    .lead-text {
+        font-size: 0.9rem;
+        padding: 0 0.5rem;
+        line-height: 1.5;
+        margin-bottom: 1.5rem;
+    }
+    
+    .section-subtitle {
+        font-size: 1rem;
+        margin: 1.2rem 0 0.75rem;
+        padding: 0 0.5rem;
+        line-height: 1.3;
+    }
+    
+    .text-block {
+        font-size: 0.85rem;
+        padding: 0 0.5rem;
+        line-height: 1.5;
+        margin-bottom: 1rem;
+    }
+    
+    .stats-grid.grid-3,
+    .stats-grid.grid-2 {
+        grid-template-columns: 1fr;
+        gap: 0.75rem;
+    }
+
+    h3.animate.fade-in {
+        font-size: 1rem;
+        padding: 0 0.5rem;
+        line-height: 1.3;
+        margin: 1rem 0 0.75rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .mission-container {
+        padding: 0.5rem 0.25rem;
+    }
+
+    .mission-intro {
+        font-size: 1rem;
+        line-height: 1.4;
+        padding: 0 0.25rem;
+        margin: 0.75rem 0;
+    }
+
+    .research-grid,
+    .research-grid.grid-3,
+    .research-grid.grid-2,
+    .research-grid.grid-4 {
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+        padding: 0 0.25rem;
+        margin-bottom: 1rem;
+    }
+
+    .research-card {
+        padding: 0.6rem;
+        gap: 0.4rem;
+    }
+
+    .research-card i {
+        font-size: 1.3rem;
+    }
+
+    .research-number {
+        font-size: 1.1rem;
+        margin-bottom: 0.2rem;
+    }
+
+    .research-label {
+        font-size: 0.7rem;
+        line-height: 1.2;
+    }
+
+    .research-intro h3 {
+        font-size: 0.95rem;
+        margin: 0.75rem 0 0.5rem;
+        padding: 0 0.25rem;
+        line-height: 1.2;
+    }
+
+    .demographic-chart {
+        padding: 0.6rem;
+        margin: 0.5rem 0;
+    }
+
+    .demographic-chart-title {
+        font-size: 0.85rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .demographic-stat {
+        padding: 0.5rem;
+    }
+
+    .demographic-stat-value {
+        font-size: 1rem;
+    }
+
+    .demographic-stat-label {
+        font-size: 0.75rem;
+    }
+
+    .section-title {
+        font-size: 1.2rem;
+        margin-bottom: 0.75rem;
+    }
+    
+    .lead-text {
+        font-size: 0.8rem;
+        padding: 0 0.25rem;
+        margin-bottom: 1rem;
+    }
+    
+    .section-subtitle {
+        font-size: 0.9rem;
+        margin: 1rem 0 0.5rem;
+        padding: 0 0.25rem;
+    }
+    
+    .text-block {
+        font-size: 0.8rem;
+        padding: 0 0.25rem;
+        line-height: 1.4;
+        margin-bottom: 0.75rem;
+    }
+
+    h3.animate.fade-in {
+        font-size: 0.9rem;
+        padding: 0 0.25rem;
+        margin: 0.75rem 0 0.5rem;
     }
 }
 

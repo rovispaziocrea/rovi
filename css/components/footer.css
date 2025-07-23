@@ -213,10 +213,18 @@
         gap: 1rem;
         align-items: center;
         justify-content: center;
+        text-align: center;
+        width: 100%;
     }
 
     .footer-link {
         font-size: 1rem;
+    }
+    
+    .footer-legal-link {
+        text-align: center;
+        display: block;
+        width: auto;
     }
 
     .footer {
