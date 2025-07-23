@@ -1,4 +1,4 @@
-export async function loadSection(containerId, sectionFile) {
+window.loadSection = async function(containerId, sectionFile) {
     try {
         const response = await fetch(`sections/${sectionFile}`);
         if (!response.ok) {
@@ -13,9 +13,9 @@ export async function loadSection(containerId, sectionFile) {
     } catch (error) {
         console.error(`Error loading section ${sectionFile}:`, error);
     }
-}
+};
 
-function initializeSection(sectionFile) {
+window.initializeSection = function(sectionFile) {
     switch (sectionFile) {
         case 'contact.html':
             setupContactForm();
@@ -24,9 +24,9 @@ function initializeSection(sectionFile) {
             setupNewsletterForm();
             break;
     }
-}
+};
 
-function setupContactForm() {
+window.setupContactForm = function() {
     const form = document.getElementById('contactForm');
     if (form) {
         form.addEventListener('submit', (e) => {
@@ -39,9 +39,9 @@ function setupContactForm() {
             window.location.href = mailtoLink;
         });
     }
-}
+};
 
-function setupNewsletterForm() {
+window.setupNewsletterForm = function() {
     const form = document.querySelector('.newsletter-form');
     if (form) {
         form.addEventListener('submit', (e) => {
@@ -51,4 +51,4 @@ function setupNewsletterForm() {
             // Add actual newsletter signup logic here
         });
     }
-}
+};

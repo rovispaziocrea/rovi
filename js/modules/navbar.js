@@ -96,8 +96,11 @@ document.addEventListener('DOMContentLoaded', function() {
     // Chiama la funzione all'avvio
     initSmoothScrolling();
 
-    // Ricarica gli eventi dopo eventuali modifiche DOM
-    document.addEventListener('DOMNodeInserted', initSmoothScrolling);
+    // Ricarica gli eventi dopo eventuali modifiche DOM usando MutationObserver
+    const observer = new MutationObserver(() => {
+        initSmoothScrolling();
+    });
+    observer.observe(document.body, { childList: true, subtree: true });
 
     // Aggiungi questo codice dopo la riga 61
     document.querySelector('.nav-logo').addEventListener('click', (e) => {

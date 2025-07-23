@@ -54,7 +54,10 @@ function initializeSection(sectionFile, containerId) {
         'spaces-container',
         'events-container'
     ].includes(containerId)) {
-        makeCollapsible(containerId);
+        const container = document.getElementById(containerId);
+        if (container) {
+            makeCollapsible(container);
+        }
     }
 }
 
